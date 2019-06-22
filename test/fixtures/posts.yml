@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  elevation: MyString
+  location: MyString
+  distance: MyString
+  level: MyString
+
+two:
+  title: MyString
+  elevation: MyString
+  location: MyString
+  distance: MyString
+  level: MyString
