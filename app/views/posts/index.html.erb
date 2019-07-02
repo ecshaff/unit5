@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Elevation</th>
       <th>Location</th>
+      <th>Hike</th>
+      <th>Elevation</th>
       <th>Distance</th>
       <th>Level</th>
       <th colspan="3"></th>
@@ -17,14 +17,14 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
+        <td><%= post.location %></td>
         <td><%= post.title %></td>
         <td><%= post.elevation %></td>
-        <td><%= post.location %></td>
         <td><%= post.distance %></td>
         <td><%= post.level %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View', post %></td>
+        <td><%= link_to 'Edit Venture', edit_post_path(post) %></td>
+        <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+

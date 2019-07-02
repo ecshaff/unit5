@@ -10,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+       <% if user_signed_in? -%>
+        <ul class="nav navbar-nav navbar-right">
+          <h1>Ruby Venture</h1>
+        <li><%= link_to 'New Adventure', new_post_path %></li>
+        <li><%= link_to 'Manage Account', edit_user_registration_path %></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete%></li>
+            </ul>
+          <% else -%>
+            <ul class="nav navbar-nav pull-right">
+              <h1>Ruby Venture</h1>
+              <li><%= link_to 'Sign up', new_user_registration_path %></li>
+              <li><%= link_to 'Sign in', new_user_session_path %></li>
+            </ul>
+          <% end -%>
+   <%= yield %>
   </body>
 </html>
