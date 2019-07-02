@@ -10,6 +10,7 @@
         Distance: <%= post.distance %>
         Level: <%= post.level %>
         <button><%= link_to 'View', post %></button>
+        <%= image_tag post.image.url(:medium) %>
         <%if post.user == current_user %>
         <button><%= link_to 'Edit Venture', edit_post_path(post) %></button>
         <button><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></button>
