@@ -1,35 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Location</th>
-      <th>Hike</th>
-      <th>Elevation</th>
-      <th>Distance</th>
-      <th>Level</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h1>Hiking News</h1>
+<div class="post">
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.location %></td>
-        <td><%= post.title %></td>
-        <td><%= post.elevation %></td>
-        <td><%= post.distance %></td>
-        <td><%= post.level %></td>
-        <td><%= link_to 'View', post %></td>
-        <td><%= link_to 'Edit Venture', edit_post_path(post) %></td>
-        <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="link row clearfix">
+        Location: <%= post.location%>
+        <%= post.title %>
+        Elevation: <%= post.elevation %>
+        Distance: <%= post.distance %>
+        Level: <%= post.level %>
+        <button><%= link_to 'View', post %></button>
+        <%if post.user == current_user %>
+        <button><%= link_to 'Edit Venture', edit_post_path(post) %></button>
+        <button><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        <% end %>
+        
+      <small class="author">Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %></small>
+    
+    <div class="btn-group">
+      <%= link_to like_post_path(post), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-up"></span>
+        Like
+        <%= post.get_upvotes.size %>
+      <% end %>
+      <%= link_to dislike_post_path(post), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-down">
+        Dislike
+        <%= post.get_downvotes.size %>
+      <% end %>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
+</div>
 <br>
 
 
+
+
+  

@@ -24,6 +24,25 @@
   <strong>Level:</strong>
   <%= @post.level %>
 </p>
-
+<%if @post.user == current_user %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<button><%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+<% end %>
+
+<%= link_to 'Back', posts_path %> 
+<div class="comment">
+<h3 class="comments_title">
+  <%= @post.comments.count %> Comments
+</h3>
+
+<div id="comments">
+  <%= render :partial => @post.comments %>
+</div>
+<%= simple_form_for [@post, Comment.new]  do |f| %>
+  <div class="field">
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <br>
+  <%= f.submit "Add Comment", class: "btn btn-primary" %>
+</div>
+<% end %>
