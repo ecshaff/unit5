@@ -34,7 +34,7 @@
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: -1px;
-	padding: 15px 0;
+	padding-top:35px;
 	a {
 		color: #2F363E;
 	}
@@ -50,7 +50,9 @@ li{
 }
 a{
 	text-decoration: none;
-	color: black;
+	color: white;
+	font-family: 'Oswald', sans-serif;
+
 }
 a:hover{
 	text-decoration: underline;
@@ -61,12 +63,13 @@ th, td{
 
 }
 body{
-	
+	background: url('https://i.imgur.com/3KHC1I9.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding-bottom: -950px;
 	margin-bottom: 300px;
 	font-family: 'Oswald', sans-serif;
+	color: white;
 
 }
 button, input{
@@ -85,7 +88,7 @@ p.alert{
 
 input{
 	font-family: 'Oswald', sans-serif;
-	border:1px solid black;
+	border:1px solid white;
 	border-radius: 0px;
 	margin-top: 10px;
 }
@@ -95,4 +98,16 @@ p, form, .field{
 	font-size: 20px;
 	margin-top: 20px;
 
+}
+
+header{
+	border: 2px solid black;
+	ul, a{
+	padding-top: 17px;
+	color: black;
+
+	}
+}
+.glyphicon-chevron{
+	font-family: 'Oswald', sans-serif;
 }
